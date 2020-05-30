@@ -1,6 +1,7 @@
-# Create Dockerfile for sawtooth 1.0.5
+# Hyperledger sawtooth docker test environment
+## Create Dockerfile for sawtooth 1.0.5
 
-This is a docker based sawtooth playground for the Hyperledger Study Circel.
+This is a docker based sawtooth playground for the Hyperledger Study Circle.
 
 [the example is based on the official documentation 1.0.5](https://sawtooth.hyperledger.org/docs/core/releases/1.0.5/app_developers_guide/ubuntu.html#installing-sawtooth)
 
