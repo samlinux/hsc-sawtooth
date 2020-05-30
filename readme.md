@@ -43,6 +43,11 @@ lsb_release -a
 dpkg -l '*sawtooth*'
 ```
 
+## Stop the running container
+```bash
+docker stop sawtooth  
+``` 
+
 ## Creating the Genesis Block
 
 ```bash
