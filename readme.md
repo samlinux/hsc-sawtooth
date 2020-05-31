@@ -1,16 +1,21 @@
 # Hyperledger sawtooth docker test environment
-## Create Dockerfile for sawtooth 1.0.5
+## Use a docker image for sawtooth 1.0.5
 
 This is a docker based sawtooth playground for the Hyperledger Study Circle.
 
-[the example is based on the official documentation 1.0.5](https://sawtooth.hyperledger.org/docs/core/releases/1.0.5/app_developers_guide/ubuntu.html#installing-sawtooth)
+[The example is based on the official documentation 1.0.5.](https://sawtooth.hyperledger.org/docs/core/releases/1.0.5/app_developers_guide/ubuntu.html#installing-sawtooth)
 
-You need 5 terminals and a running docker environment for this example.
+You need 5 terminals and a running docker environment for this example. To install docker on your OS follow this link [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/).
 
-## Create Docker image
-Build your own docker image.
+To run this example you have two options:
+
+1. create and build your own image
+2. pull a pre build image from docker hub
+
+## (1) Create docker image
+Build your own and adapted docker image.
 ```bash
-build -t sawtooth_1.0.5:1 .
+build -t samlinux/sawtooth_1.0.5:1 .
 ```
 
 Check if the image is there.
@@ -19,10 +24,17 @@ docker images |grep sawtooth
 sawtooth_1.0.5
 ```
 
+## (2) Pull the pre build image
+Pull the pre build image from docker hub [https://hub.docker.com/r/samlinux/hsc-sawtooth_1.0.5](https://hub.docker.com/r/samlinux/hsc-sawtooth_1.0.5).
+
+```bash
+docker pull samlinux/hsc-sawtooth_1.0.5
+```
+
 ##  Run the image as container
 Run the docker container in the background.
 ```bash
-docker run -d --name sawtooth -it sawtooth_1.0.5:1
+docker run -d --name sawtooth -it samlinux/hsc-sawtooth_1.0.5:1
 ```
 
 Remove exited containers
@@ -33,6 +45,9 @@ docker rm $(docker ps -a -f status=exited -q)
 Access the running container
 ```bash
 docker exec -it sawtooth bash
+
+# exit from the container
+exit
 ```
 
 Check installation
@@ -49,6 +64,17 @@ dpkg -l '*sawtooth*'
 docker stop sawtooth  
 ``` 
 
+## Remove the container
+```bash
+docker rm sawtooth
+``` 
+
+## Remove the image
+```bash
+docker rmi samlinux/hsc-sawtooth_1.0.5:1
+``` 
+
+# Sawtooth related part
 ## Creating the Genesis Block
 
 ```bash
