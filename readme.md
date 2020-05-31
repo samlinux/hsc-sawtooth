@@ -13,6 +13,21 @@ To run this example you have two options:
 2. pull a pre build image from docker hub
 
 ## (1) Create docker image
+
+Download the ZIP file from the github repo and unzip it.
+
+Switch into the project directory.
+```bash 
+cd hsc-sawtooth-master/
+
+# you should have two files into that directory
+tree .
+.
+├── Dockerfile
+└── readme.md
+```
+
+Study the Dockerfile file to make any adjustments, if you need.
 Build your own and adapted docker image.
 ```bash
 build -t samlinux/sawtooth_1.0.5:1 .
